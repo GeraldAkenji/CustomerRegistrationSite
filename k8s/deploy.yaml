@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-site-deployment
+  namespace: gerald-env
+  labels:
+    app: customer-site
+spec:
+  selector:
+    matchLabels:
+      app: customer-site
+  template:
+    metadata:
+      labels:
+        app: customer-site
+    spec:
+      containers:
+      - name: customer-site
+        image: PLEASE_REPLACE_ME
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 5000
